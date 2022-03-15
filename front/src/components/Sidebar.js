@@ -1,22 +1,36 @@
 import React from 'react';
 
-import Drawer from '@material-ui/core/Drawer';
 import useStyles from './styles/SidebarStyles';
+import { Link } from '@material-ui/core';
 
-import { Typography } from '@material-ui/core';
+import Category from '../assets/Category.png'
+import Products from '../assets/Products.png'
+import Brands from '../assets/Brands.png'
 
-import { Inventory2 } from '@mui/icons-material'
 
 function Sidebar(){
 
     const classes = useStyles()
 
     return(
-        <Drawer anchor={'left'} variant={'permanent'}>
-            <div className={classes.SideBar}>
-                <Typography><Inventory2 />Produtos</Typography>
+    <div>
+        <div className={classes.SideBar}>
+            <div className={classes.LinkPages}>
+                <img src={Category} className={classes.SidebarIcons} alt='Categorias'/>
+                <Link href='/dashboard/category'>Categorias</Link>
             </div>
-        </Drawer>
+
+            <div className={classes.LinkPages}>
+                <img src={Products} className={classes.SidebarIcons} alt='Produtos'/>
+                <Link href='/dashboard/products'>Produtos</Link>
+            </div>
+
+            <div className={classes.LinkPages}>
+                <img src={Brands} className={classes.SidebarIcons} alt='Marcas'/>
+                <Link href='/dashboard/brands'>Marcas</Link>
+            </div>
+        </div>
+    </div>
     )
 }
 
