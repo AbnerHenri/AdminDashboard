@@ -4,18 +4,18 @@ const router = express.Router()
 // ---------------------Imports--------------------- //
 
 const Products = require('../controllers/ProductsControllers')
-const Category = require('../controllers/CategoryController')
 const Brands = require('../controllers/BrandControllers')
+const Categories = require('../controllers/CategoryController')
 
 // ---------------------AdminRoutes--------------------- //
 
-router.get('/products', express.json(), Products.ShowProducts)
-router.get('/category', express.json(), Category.ShowCategory)
-router.get('/brands', express.json(), Brands.ShowBrands)
+router.get('/products', Products.ShowProducts)
+router.get('/category', Categories.ShowCategory)
+router.get('/brands', Brands.ShowBrands)
 
-router.post('/products', express.urlencoded(), Products.AddProducts)
-router.post('/category', express.urlencoded(), Category.AddCategory)
-router.post('/brands', express.urlencoded(), Brands.AddBrands)
+router.post('/products', express.json(), Products.AddProducts)
+router.post('/category', express.json(), Categories.AddCategory)
+router.post('/brands', express.json(), Brands.AddBrands)
 
 // ---------------------LoginRoutes--------------------- //
 

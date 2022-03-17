@@ -1,14 +1,37 @@
+const Category = require('../models/CategorySchema')
+const uuid = require('uuid')
 
-const Category = {
+const Categories = {
 
-    ShowCategory : function (req, res){
+    ShowCategory : async function (req, res){
+        const allCategories = await Category.find()
+        const filteredCategories = allCategories.map( e => { 
+            return {name : e.name, description : e.description, id : e.id}
+        })
 
+        try {
+            res.send(filteredCategories)
+        } catch (error) {
+            res.status(400).send(error)
+        }
+        
     },
 
-    AddCategory : function (req, res){
+    AddCategory : async function (req, res){
+        const category = new Category({
+            name : req.body.name,
+            description : req.body.description,
+            id : uuid.v4()
+        })
 
+        try {
+            await category.save()
+            res.send('Categoria adicionada')
+        } catch (error) {
+            console.log(error)
+        }
     }
 
 }
 
-module.exports = Category
+module.exports = Categories
