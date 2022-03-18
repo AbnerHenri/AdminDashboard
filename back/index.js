@@ -13,4 +13,4 @@ mongoose.connect(process.env.URL)
 
 app.use('/dashboard', DashboardRoutes)
 
-app.listen(3333, ()=> { console.log('Server Running') })
+app.listen(3000, ()=> { console.log('Server Running') })

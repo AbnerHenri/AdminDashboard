@@ -1,10 +1,14 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
-
-import { Box, Modal, TextField } from '@material-ui/core'
+import Card from "../components/CardItems";
+import useStyles from "./styles/ItemsStyle";
+import { Box, Button, Modal, TextField } from '@material-ui/core'
 
 function Category(){
 
+    const classes = useStyles()
+
+    const [show, setShow] = useState([])
     const [open, setOpen] = useState(false)
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
@@ -23,6 +27,24 @@ function Category(){
         boxShadow: 24,
     }
 
+    useEffect(()=>{
+        fetch('/dashboard/category')
+            .then(res => res.json())
+            .then( data => {
+                setShow(data)
+                console.log(data)
+            })
+           
+    },[])
+
+    function refresh(){
+        setTimeout(() => {
+            handleClose()
+            window.location.reload()
+        }, 1000);
+    }
+
+
     return(
         <div>    
             <Sidebar />
@@ -30,12 +52,17 @@ function Category(){
             <button onClick={handleOpen} style={{marginLeft : 700}}>Adicionar Categoria</button>
             <Modal open={open} onClose={handleClose}>
                 <Box>
-                <form style={style}>
-                    <TextField style={{marginTop : 15}} name ='category' id="filled-basic" type={'text'} label="Categoria" variant="filled" />
-                    <TextField style={{marginTop : 15}} name='category_description' type={'text'} id='filled-basic' label='Descrição' variant='filled' />
+                <form style={style} action='/dashboard/category' method="POST">
+                    <TextField style={{marginTop : 15}} name ='name' id="filled-basic" type={'text'} label="Categoria" variant="filled" />
+                    <TextField style={{marginTop : 15}} name='description' type={'text'} id='filled-basic' label='Descrição' variant='filled' />
+                    <Button type={'submit'} variant='contained' color='primary' style={{marginTop : 25}} onClick={()=> refresh()}>Enviar</Button>
                 </form>
                 </Box>
             </Modal>
+
+            <div className={classes.Items}>
+                {show.map( e => <Card name={e.name} description={e.description}/>)}
+            </div>
         </div>
     )
 }

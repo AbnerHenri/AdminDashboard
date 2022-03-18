@@ -13,9 +13,9 @@ router.get('/products', Products.ShowProducts)
 router.get('/category', Categories.ShowCategory)
 router.get('/brands', Brands.ShowBrands)
 
-router.post('/products', express.json(), Products.AddProducts)
-router.post('/category', express.json(), Categories.AddCategory)
-router.post('/brands', express.json(), Brands.AddBrands)
+router.post('/products', express.urlencoded({ extended : false }), Products.AddProducts)
+router.post('/category', express.urlencoded({ extended : false }), Categories.AddCategory)
+router.post('/brands', express.urlencoded({ extended : false }), Brands.AddBrands)
 
 // ---------------------LoginRoutes--------------------- //
 

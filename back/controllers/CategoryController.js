@@ -18,19 +18,21 @@ const Categories = {
     },
 
     AddCategory : async function (req, res){
+
+    if(req.body.name && req.body.description != ''){
         const category = new Category({
             name : req.body.name,
             description : req.body.description,
             id : uuid.v4()
         })
-
+        
         try {
             await category.save()
-            res.send('Categoria adicionada')
         } catch (error) {
             console.log(error)
         }
     }
+}
 
 }
 
