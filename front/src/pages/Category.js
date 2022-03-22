@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import Card from "../components/CardItems";
-import useStyles from "./styles/ItemsStyle";
+import useStyles from "./styles/GlobalStyles";
 import { Box, Button, Modal, TextField } from '@material-ui/core'
 
 function Category(){
@@ -49,7 +49,7 @@ function Category(){
         <div>    
             <Sidebar />
             <h1 style={{marginLeft : 700, color : 'white'}}>Categorias</h1>
-            <button onClick={handleOpen} style={{marginLeft : 700}}>Adicionar Categoria</button>
+            <Button onClick={handleOpen} style={{marginLeft : 680}} variant='contained'>Adicionar Categoria</Button>
             <Modal open={open} onClose={handleClose}>
                 <Box>
                 <form style={style} action='/dashboard/category' method="POST">

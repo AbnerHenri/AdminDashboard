@@ -3,6 +3,10 @@ const uuid = require('uuid')
 
 const Categories = {
 
+    DeleteCategory : async function (req,res){
+        
+    },
+
     ShowCategory : async function (req, res){
         const allCategories = await Category.find()
         const filteredCategories = allCategories.map( e => { 

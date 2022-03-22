@@ -23,7 +23,6 @@ const Brands = {
 
         try {
             await brand.save()
-            res.send('Marca Adicionada')
         } catch (error) {
             console.log(error)
         }

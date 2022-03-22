@@ -17,21 +17,36 @@ const useStyles = makeStyles({
     },
 
     LinkPages : {
+        position : 'relative',
+        display : 'flex',
+        flexDirection : 'column',
+        alignItems : 'center',
+        justifyContent : 'center',
         textDecoration : 'none',
         color : 'black',
         display : 'flex',
-        alignItems : 'center',
         cursor : 'pointer',
-        margin : 15,
+        margin : 5,
+        marginLeft : 25,
         marginBottom : 25,
         padding : 15,
-        fontSize : 25,
+        fontSize : 20,
+        width : 120,
+        height : 120,
+        border : '1px solid gray',
+        borderRadius : 18,
+        boxShadow : '2px 3px 10px 0px',
+
+        '&:hover' : {
+            transitionDuration : 500,
+            position : 'relative',
+            bottom : 20
+        }
     },
 
     SidebarIcons : {
         width : 50,
-        marginRight : 15,
-        marginLeft : -10,
+        marginBottom : 20
     }
 })
 

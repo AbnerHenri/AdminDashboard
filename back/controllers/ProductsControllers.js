@@ -37,7 +37,6 @@ const Products = {
 
         try {
             await product.save()
-            res.send('Produto cadastrado')
         } catch (error) {
             console.log(error)
         }

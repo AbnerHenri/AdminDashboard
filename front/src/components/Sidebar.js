@@ -1,8 +1,7 @@
 import React from 'react';
 
 import useStyles from './styles/SidebarStyles';
-import { Link } from '@material-ui/core';
-
+import { Typography } from '@material-ui/core';
 import Category from '../assets/Category.png'
 import Products from '../assets/Products.png'
 import Brands from '../assets/Brands.png'
@@ -15,19 +14,19 @@ function Sidebar(){
     return(
     <div>
         <div className={classes.SideBar}>
-            <div className={classes.LinkPages}>
+            <div className={classes.LinkPages} onClick={()=> window.location.href='/dashboard/category'}>
                 <img src={Category} className={classes.SidebarIcons} alt='Categorias'/>
-                <Link href='/dashboard/category'>Categorias</Link>
+                <Typography style={{fontSize : 20, color : '#023e8a'}}>Categorias</Typography>
             </div>
 
-            <div className={classes.LinkPages}>
+            <div className={classes.LinkPages} onClick={()=> window.location.href='/dashboard/products'}>
                 <img src={Products} className={classes.SidebarIcons} alt='Produtos'/>
-                <Link href='/dashboard/products'>Produtos</Link>
+                <Typography style={{fontSize : 20, color : '#023e8a'}}>Produtos</Typography>
             </div>
 
-            <div className={classes.LinkPages}>
+            <div className={classes.LinkPages} onClick={()=> window.location.href='/dashboard/brands'}>
                 <img src={Brands} className={classes.SidebarIcons} alt='Marcas'/>
-                <Link href='/dashboard/brands'>Marcas</Link>
+                <Typography style={{fontSize : 20, color : '#023e8a'}}>Marcas</Typography>
             </div>
         </div>
     </div>
