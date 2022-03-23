@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import useStyles from "./styles/GlobalStyles";
-import Card from '../components/CardItems'
+import CardProduct from '../components/CardItemForProducts'
 import { Box, Button, Modal, TextField } from '@material-ui/core'
 
 function Products(){
@@ -65,13 +65,7 @@ function Products(){
             </Modal>
 
             <div className={classes.Items}>
-                {show.map( e => <Card name={e.name}
-                    description={e.description} 
-                    id={e.id}
-                    price={e.price}
-                    inventory={e.inventory}
-                    category={e.category}
-                    brand={e.brand}/>)}
+                {show.map( e => <CardProduct name={e.name} id={e.id}/>)}
 
             </div>
 

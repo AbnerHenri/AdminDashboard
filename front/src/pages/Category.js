@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
-import Card from "../components/CardItems";
+import CardCategory from "../components/CardItemForCategory";
 import useStyles from "./styles/GlobalStyles";
 import { Box, Button, Modal, TextField } from '@material-ui/core'
 
@@ -61,7 +61,7 @@ function Category(){
             </Modal>
 
             <div className={classes.Items}>
-                {show.map( e => <Card name={e.name} description={e.description}/>)}
+                {show.map( e => <CardCategory name={e.name} description={e.description}/>)}
             </div>
         </div>
     )
