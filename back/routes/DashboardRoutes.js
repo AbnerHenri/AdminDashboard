@@ -17,6 +17,8 @@ router.post('/products', express.urlencoded({ extended : false }), Products.AddP
 router.post('/category', express.urlencoded({ extended : false }), Categories.AddCategory)
 router.post('/brands', express.urlencoded({ extended : false }), Brands.AddBrands)
 
+router.delete('/products/:id', express.json() ,Products.DeleteItem)
+
 // ---------------------LoginRoutes--------------------- //
 
 module.exports = router

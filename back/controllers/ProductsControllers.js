@@ -3,6 +3,13 @@ const uuid = require('uuid')
 
 const Products = {
 
+    DeleteItem : async function(req,res){
+        const id = await req.params.id
+
+        await Product.findOneAndDelete({id : id})
+        res.status(200)
+    },
+
     ShowProducts : async function (req, res){
         const allProducts = await Product.find()
         const filteredProducts =

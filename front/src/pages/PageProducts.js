@@ -1,12 +1,17 @@
 import { React, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom'
-import { Container, Typography } from '@material-ui/core'
+import { useParams, useNavigate } from 'react-router-dom'
+import { Button, Container, Typography, Modal, Box } from '@material-ui/core'
 import useStyles from './styles/PageProductStyle'
 import Image from '../assets/Product.png'
 
 function PageProducts() {
 
+    const [open, setOpen] = useState(false)
+    const handleOpen = () => setOpen(true)
+    const handleClose = () => setOpen(false)
+
     const params = useParams()
+    const navigate = useNavigate()
     const classes = useStyles()
 
     const [products, setProducts] = useState([])
@@ -22,6 +27,11 @@ function PageProducts() {
             })
 
         }, [params])
+
+        function Delete(id){
+            fetch('/dashboard/products/' + id, {method : 'DELETE'})
+            navigate('/dashboard/products')
+        }
 
   return(
       <div>
@@ -45,6 +55,20 @@ function PageProducts() {
                     <Typography variant='h3'>Descrição</Typography>
                     <Typography variant='h6'>{products.description}</Typography>
                 </div>
+
+                <Button className={classes.delButton} variant='contained' color='danger' onClick={handleOpen}>Deletar Produto</Button>
+
+                <Modal open={open} onClose={handleClose}>
+                    <Box>
+                        <div className={classes.modal}>
+                            <Typography className={classes.delMessage} variant='h5'>Deseja mesmo deletar o produto?</Typography>
+                            <div className={classes.Buttons}>
+                                <Button className={classes.IndButton} variant='contained' onClick={()=> Delete(params.id)}>Sim</Button>
+                                <Button className={classes.IndButton} variant='contained' onClick={handleClose}>Não</Button>
+                            </div>
+                        </div>
+                    </Box>
+                </Modal>
             </div>
           </Container>
       </div>
