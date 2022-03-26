@@ -3,6 +3,13 @@ const uuid = require('uuid')
 
 const Brands = {
 
+    DeleteBrand : async function(req,res){
+        const id = await req.params.id
+
+        await Brand.findOneAndDelete({ id : id})
+        res.status(200)
+    },  
+
     ShowBrands : async function (req, res){
         const allBrands = await Brand.find()
         const filteredBrands = allBrands.map( e => { return {name : e.name, id : e.id}})

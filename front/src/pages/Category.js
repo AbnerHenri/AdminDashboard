@@ -61,7 +61,7 @@ function Category(){
             </Modal>
 
             <div className={classes.Items}>
-                {show.map( e => <CardCategory name={e.name} description={e.description}/>)}
+                {show.map( e => <CardCategory name={e.name} description={e.description} id={e.id} />)}
             </div>
         </div>
     )

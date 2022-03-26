@@ -18,6 +18,8 @@ router.post('/category', express.urlencoded({ extended : false }), Categories.Ad
 router.post('/brands', express.urlencoded({ extended : false }), Brands.AddBrands)
 
 router.delete('/products/:id', express.json() ,Products.DeleteItem)
+router.delete('/category/:id', express.json() , Categories.DeleteCategory)
+router.delete('/brands/:id', express.json() , Brands.DeleteBrand)
 
 // ---------------------LoginRoutes--------------------- //
 

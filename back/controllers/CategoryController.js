@@ -4,7 +4,10 @@ const uuid = require('uuid')
 const Categories = {
 
     DeleteCategory : async function (req,res){
-        
+        const id = await req.params.id
+
+        await Category.findOneAndDelete({ id : id})
+        res.status(200)
     },
 
     ShowCategory : async function (req, res){

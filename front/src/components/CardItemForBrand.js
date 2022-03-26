@@ -2,8 +2,7 @@ import { React, useState } from 'react';
 import { Box, Typography, Modal, Button } from '@material-ui/core'
 import Question from '../assets/Question.png'
 
-
-function CardCategory(props) {
+function Card(props) {
 
     const [open, setOpen] = useState(false)
     const handleOpen = () => setOpen(true)
@@ -44,33 +43,28 @@ function CardCategory(props) {
         backgroundColor : 'white',
     }
 
-    function deleteCategory(id){
-
+    function deleteBrand(id){
         setTimeout(() => {
-            fetch(`/dashboard/category/${id}`, { method : 'DELETE'})
+            fetch(`/dashboard/brands/${id}`, { method : 'DELETE'})
             window.location.reload()
-        }, 500);
-        
+        }, 300);
     }
-
 
   return(
     <>
-        <div style={styleCard} onClick={handleOpen}> 
+        <div style={styleCard} id={props.id} onClick={handleOpen}> 
             <Box sx={styleBox} />
             <Typography style={{textAlign : 'center', marginTop : 5}}>{props.name}</Typography>
         </div>
 
         <Modal open={open} onClose={handleClose}>
-            <Box>
             <div style={styleModal}>
-                <Typography style={{ marginBottom : 35}}>{props.description}</Typography>
-                <Button variant='contained' color='primary' onClick={()=> deleteCategory(props.id)}>Deletar</Button>
-            </div>   
-            </Box>
+                <Typography style={{marginBottom : 35}}>Deseja deletar esta marca?</Typography>
+                <Button variant='contained' color='primary' onClick={()=> deleteBrand(props.id)}>Deletar</Button>
+            </div>
         </Modal>
     </>
   );
 }
 
-export default CardCategory;
+export default Card;

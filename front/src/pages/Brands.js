@@ -2,7 +2,7 @@ import { React, useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import useStyles from "./styles/GlobalStyles";
 import { Box, Button, Modal, TextField } from '@material-ui/core'
-import Card from "../components/CardItems";
+import Card from "../components/CardItemForBrand";
 
 function Brands(){
 
@@ -60,7 +60,7 @@ function Brands(){
             </Modal>
 
             <div className={classes.Items}>
-                {show.map( e => <Card name={e.name} description={e.description}/>)}
+                {show.map( e => <Card name={e.name} id={e.id}/>)}
             </div>
         </div>
     )
