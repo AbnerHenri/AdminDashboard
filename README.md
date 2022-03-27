@@ -2,25 +2,25 @@
 
 <br>
 
-✅ - Adicionar produtos
-✅ - Adicionar categorias
+✅ - Adicionar produtos <br>
+✅ - Adicionar categorias <br>
 ✅ - Adicionar marcas
 
 <br>
 
-<p>Um dashboard para adiministradores que permite adicionar </p><br>
-<p>e excluir produtos, categorias e marcas e também tem umas tela</p><br>
+<p>Um dashboard para adiministradores que permite adicionar </p>
+<p>e excluir produtos, categorias e marcas e também tem umas tela</p>
 <p>de produtos dinâmicos</p>
 
 <br>
 <hr>
 <br>
 
-<img src='./public/assets/Animação.gif'>
+<img src='./front/public/assets/Animação.gif'>
 
 <br>
 
-<img src='./public/assets/pageProducts.png'>
+<img src='./front/public/assets/pageProducts.png'>
 
 🚀 Tecnologias
 
